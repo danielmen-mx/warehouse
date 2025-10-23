@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from '@/layouts/MainLayout';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
+import { DashboardPage } from '../features/inventory/pages/DashboardPage';
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const token = localStorage.getItem('token');
@@ -17,7 +18,7 @@ export const AppRoutes = () => {
           element={
             <PrivateRoute>
               <MainLayout>
-                <div>Dashboard (Usuario logueado)</div>
+                <DashboardPage />
               </MainLayout>
             </PrivateRoute>
           }
