@@ -12,22 +12,19 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 
 export const AppRoutes = () => {
   return (
-    <BrowserRouter>
-    {/* <NavigatorInitializer /> */}
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route
-          path='/dashboard'
-          element={
-            <PrivateRoute>
-              <MainLayout>
-                <DashboardPage />
-              </MainLayout>
-            </PrivateRoute>
-          }
-        />
-        <Route path='*' element={<Navigate to="/login" />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path='/dashboard'
+        element={
+          <PrivateRoute>
+            <MainLayout>
+              <DashboardPage />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      <Route path='*' element={<Navigate to="/login" />} />
+    </Routes>
   );
 }
